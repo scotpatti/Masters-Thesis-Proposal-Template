@@ -1,0 +1,266 @@
+\documentclass[ms,twoside,print]{nuthesis}
+%Note: Leaving out print or twoside will result in oneside printing.
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[sc,osf]{mathpazo}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{paralist}
+\usepackage{graphicx}
+%% I like darker colors
+\usepackage{color}
+\definecolor{dark-red}{rgb}{0.6,0,0}
+\definecolor{dark-green}{rgb}{0,0.6,0}
+\definecolor{dark-blue}{rgb}{0,0,0.6}
+
+%% If you use hyperref, you need to load memhfixc *after* it.
+%% See the memoir docs for details.
+\usepackage[%
+pdfauthor={Stellar Student},
+pdftitle={Thesis Template},
+pdfsubject={Thesis},
+pdfkeywords={LaTeX, Thesis, Southern Adventist University},
+linkcolor=dark-blue,
+pagecolor=dark-green,
+citecolor=dark-blue,
+urlcolor=dark-red,
+colorlinks=true,
+backref,
+plainpages=false,% This helps to fix the issue with hyperref with page numbering
+pdfpagelabels% This helps to fix the issue with hyperref with page numbering
+]{hyperref}
+%% Needed by memoir to fix things with hyperref
+\usepackage{memhfixc}
+\begin{document}
+%% Start formating the first few special pages
+%% frontmatter is needed to set the page numbering correctly
+\frontmatter
+
+\title{Thesis Template}
+\author{Stellar Student}
+\adviser{Professor Anderson}
+\adviserAbstract{Scot Anderson, Ph.D.}
+\major{Computer Science}
+\degreemonth{August}
+\degreeyear{2014}
+%%
+%% For most people the defaults will be correct, so they are commented
+%% out. To manually set these, just uncomment and make the needed
+%% changes.
+%% \college{Your college}
+%% \city{Your City}
+%%
+%% For most people the following can be changed with a class
+%% option. To manually set these, just uncomment the following and
+%% make the needed changes.
+\doctype{THESIS PROPOSAL} %Thesis, Thesis Proposal or Dissertation
+%% \degree{Your degree}
+%% \degreeabbreviation{Your degree abbr.}
+%%
+%% Now that we know everything we need, we can generate the title page
+%% itself.
+%%
+\maketitle
+%% You have a maximum of 350, which includes your title, name, etc.
+\begin{abstract}
+  A simple test of using \textsf{nuthesis}, which demonstrates most
+  of the options the class has.
+\end{abstract}
+
+%% Optional
+\begin{copyrightpage}
+This file may be distributed and/or modified under the conditions of
+the \LaTeX{} Project Public License, either version 1.3c of this license
+or (at your option) any later version.  The latest version of this
+license is in:
+\begin{center}
+   \url{http://www.latex-project.org/lppl.txt}
+\end{center}
+and version 1.3c or later is part of all distributions of \LaTeX version
+2006/05/20 or later.
+\end{copyrightpage}
+
+%% Optional
+%\begin{dedication}
+%  Arma virumque cano, Troiae qui primus ab oris Italiam, fato
+%  profugus, Laviniaque venit litora, multum ille et terris iactatus et
+%  alto vi superum saevae memorem Iunonis ob iram; multa quoque et
+%  bello passus, dum conderet urbem, inferretque deos Latio, genus unde
+%  Latinum, Albanique patres, atque altae moenia Romae.
+%\end{dedication}
+
+%% Optional
+%\begin{acknowledgments}
+%  Arma virumque cano, Troiae qui primus ab oris Italiam, fato
+%  profugus, Laviniaque venit litora, multum ille et terris iactatus et
+%  alto vi superum saevae memorem Iunonis ob iram; multa quoque et
+%  bello passus, dum conderet urbem, inferretque deos Latio, genus unde
+%  Latinum, Albanique patres, atque altae moenia Romae.
+%\end{acknowledgments}
+
+%% Optional
+%\begin{grantinfo}
+%  I'm not funded by any grants.
+%\end{grantinfo}
+%% The ToC is required
+%% Uncomment these if need be
+
+%% The ToC is required
+\tableofcontents
+%% Uncomment these if need be
+\listoffigures
+\listoftables
+
+%%   mainmatter is needed after the ToC, (LoF, and LoT) to set the
+%%   page numbering correctly for the main body
+\mainmatter
+
+%% Thesis goes here
+\chapter{Introduction}\label{chap:introduction}
+
+The introduction exists to motivate the reader to read the rest of your document. It should incorporate the following elements:
+
+\begin{itemize}
+  \item Problem Statement
+  \item Specific project goals/requirements
+  \item Motivation for and/or benefits of the project
+\end{itemize}
+
+\section{The Problem Statement}
+
+Dr. Hall, we could use the information that you give your senior seminar students here. 
+
+\section{Goals and Requirements}
+
+You should incorporate your vision of the project and delineate the elements that your project requires.
+
+\section{Motivation}
+
+Make sure you include motivation for your project. You should answer the question: Why is this important?
+
+There is no reason to follow the form that I have given here. Although these things often follow in sequence, you do not need separate sections for each one. 
+\chapter{Background}
+
+Include a brief synopsis of the works built on. Clearly identify the missing elements from other project/thesis that you will create/expand/explore. This should reflect the research that you have done to date; and that research should clearly show that your chosen project/thesis meets the requirements. Summarize your knowledge with charts, tables and graphs where appropriate. To put this succinctly: 
+\begin{itemize}
+  \item Review of the appropriate literature
+  \item Summary of known similar implementations of the project
+\end{itemize}
+
+\chapter{Proposal}
+
+The proposal chapter should include the following information:
+\begin{itemize}
+  \item Description of the proposed solution/approach
+  \item Delineation of major tasks/milestones
+  \item Description of the expected final deliverables
+  \item List of the software/hardware needed for completing this project and its evaluation 
+\end{itemize}
+
+\chapter{Testing/Evaluation Plan}
+The testing/evaluation chapter should include the following information:
+\begin{itemize}
+  \item List of target results/outcomes based on project requirements
+  \item Description of the specific measure, target value, and testing plan that will be used to assess attainment for each target result
+  \item Description of the method of evaluating the success of the project
+\end{itemize}
+
+\chapter{Conclusion}
+The conclusion summarizes your proposal as follows:
+
+\begin{itemize}
+  \item Summary of the problem statement and project goals
+  \item Summary of the proposed solution and expected outcomes/deliverables
+\end{itemize}
+
+
+%% backmatter is needed at the end of the main body of your thesis to
+%% set up page numbering correctly for the remainder of the thesis
+\backmatter
+
+%% Start the correct formatting for the appendices
+\appendix
+
+\chapter{Some Tables and Figures}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ll}\toprule
+    First & Last \\ \midrule
+    Ned & Hummel \\
+    Ned & Hummel \\
+    Ned & Hummel \\ \bottomrule
+  \end{tabular}
+  \caption{Arma virumque cano, Troiae qui primus ab oris Italiam, fato profugus,
+Laviniaque venit litora, multum ille et terris iactatus et alto vi
+superum saevae memorem Iunonis ob iram}
+  \label{tab:tabular}
+\end{table}
+
+\begin{table}[h]
+  \centering
+
+  \begin{compactitem}[\checkmark]
+    \item Foo
+    \item Foo
+    \item Foo
+    \end{compactitem}
+
+  \caption{Arma virumque cano, Troiae qui primus ab oris Italiam, fato profugus,
+Laviniaque venit litora, multum ille et terris iactatus et alto vi
+superum saevae memorem Iunonis ob iram}
+  \label{tab:list}
+\end{table}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=3in]{logoBlackH}
+  \caption{Arma virumque cano, Troiae qui primus ab oris Italiam, fato profugus,
+Laviniaque venit litora, multum ille et terris iactatus et alto vi
+superum saevae memorem Iunonis ob iram}
+  \label{fig:test}
+\end{figure}
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.~\cite{lorum}
+
+
+\chapter{Some Math}\label{chap:math}
+
+This is a triviality, but we include it for completeness.
+\begin{equation}
+\int_0^\infty f(x) \, dx =
+\begin{cases} 1 & \mbox{if $f=\delta$,} \\
+0 & \mbox{if $f=0$.} \end{cases}
+\end{equation}
+
+Here is an aligned set of equations.
+\begin{align}
+f(x) &= f(x) \cdot 1 \\
+     &= f(x) \cdot (2-1)\label{eq:fun}\\
+     &= f(x)
+\end{align}
+
+The clever step is~\eqref{eq:fun}.
+
+\chapter{Testing, 1, 2, 3, \ldots}
+
+This has been a test of the thesis typesetting system.
+Had this been an actual thesis, this would have been
+preceded by an actual thesis.
+
+%% Bibliography goes here (You better have one)
+%% BibTeX is your friend
+\bibliographystyle{IEEEtran}
+\bibliography{nuthesis}
+%% Pull in all the entries in the bibtex file. Is is a useful trick to
+%% check all your references.
+\nocite{*}
+
+%% Index go here (if you have one)
+
+\end{document}
+\endinput
+%%
+%% End of file `thesis-test.tex'.
