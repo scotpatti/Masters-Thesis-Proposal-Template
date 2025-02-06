@@ -1,6 +1,7 @@
 \documentclass[ms,twoside,print]{nuthesis}
 %Note: Leaving out print or twoside will result in oneside printing.
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage[sc,osf]{mathpazo}
 \usepackage{microtype}
@@ -8,10 +9,12 @@
 \usepackage{paralist}
 \usepackage{graphicx}
 %% I like darker colors
-\usepackage{color}
+\usepackage{color} % This is required for listings.tex input below.
 \definecolor{dark-red}{rgb}{0.6,0,0}
 \definecolor{dark-green}{rgb}{0,0.6,0}
 \definecolor{dark-blue}{rgb}{0,0,0.6}
+
+\input{listings.tex}
 
 %% If you use hyperref, you need to load memhfixc *after* it.
 %% See the memoir docs for details.
@@ -31,18 +34,25 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 ]{hyperref}
 %% Needed by memoir to fix things with hyperref
 \usepackage{memhfixc}
+
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+
+
 \begin{document}
 %% Start formating the first few special pages
 %% frontmatter is needed to set the page numbering correctly
 \frontmatter
 
-\title{Thesis Template}
+\title{Project Proposal Template}
 \author{Stellar Student}
 \adviser{Professor Anderson}
 \adviserAbstract{Scot Anderson, Ph.D.}
 \major{Computer Science}
 \degreemonth{August}
-\degreeyear{2014}
+\degreeyear{2025}
 %%
 %% For most people the defaults will be correct, so they are commented
 %% out. To manually set these, just uncomment and make the needed
@@ -53,7 +63,7 @@ pdfpagelabels% This helps to fix the issue with hyperref with page numbering
 %% For most people the following can be changed with a class
 %% option. To manually set these, just uncomment the following and
 %% make the needed changes.
-\doctype{THESIS PROPOSAL} %Thesis, Thesis Proposal or Dissertation
+\doctype{PROJECT PROPOSAL} %Thesis, Thesis Proposal or Dissertation
 %% \degree{Your degree}
 %% \degreeabbreviation{Your degree abbr.}
 %%
@@ -126,9 +136,22 @@ The introduction exists to motivate the reader to read the rest of your document
   \item Motivation for and/or benefits of the project
 \end{itemize}
 
-\section{The Problem Statement}
+\section{Problem statement}
 
-Dr. Hall, we could use the information that you give your senior seminar students here. 
+This does not need to be a separate section and should be part of the text that follows your Chapter heading. 
+
+A problem statement is a clear, concise, and focused description of the issue or challenge that the research or project addresses. It identifies a gap in knowledge or technology and explains the significance of solving the problem. This statement serves as the foundation for the entire research or project, guiding the direction, objectives and methodology. It typically includes:
+
+\begin{enumerate}
+  \item Context: The background of the problem, including the current situation and the conditions that led to the problem.
+  \item Specific problem: Identifies the core issue or question the research or project seeks to answer or address.
+  \item Justification/Motivation: Explains why this problem is important and why it deserves attention, often highlighting the potential impact and implications.
+  \item Objectives: Defines the goals that the research or project aims to achieve. 
+\end{enumerate}
+
+\begin{example}
+  Despite the growing availability of electronic cars, rural users still struggle with the availability of charging stations and charging time constraints entailed in the greater distances traveled. This research aims to identify the distinguishing factors that make electronic vehicles impractical for temporally intensive applications often found in rural areas and the obstacles that must be overcome make such applications practical. 
+\end{example}
 
 \section{Goals and Requirements}
 
@@ -172,6 +195,9 @@ The conclusion summarizes your proposal as follows:
   \item Summary of the problem statement and project goals
   \item Summary of the proposed solution and expected outcomes/deliverables
 \end{itemize}
+
+The template given is a typical one and some variations in organization can be made but should be done in
+consultation with your major advisor. For additional information consult the Turabian~\cite{turabian}. 
 
 
 %% backmatter is needed at the end of the main body of your thesis to
@@ -244,6 +270,28 @@ f(x) &= f(x) \cdot 1 \\
 
 The clever step is~\eqref{eq:fun}.
 
+\chapter{\LaTeX~'isms'}
+
+Although you are free to use any system you like, this repository is built to use Visual Studio Code with the LaTeX workshop extension. An additional ``settings.json'' file has been added to properly clean your document. (Ctrl+Shift+P, type ``Clean up auxiliary files'' and press enter). Please do clean your project before attempting to push updates to your Git repository. In case you chose not to follow that advice, a ``.gitignore'' file has been added to the repository to ignore the auxiliary files.
+
+You can drop this into Overleaf and use Grammarly there (recommended), but for Visual Studio Code, we installed the LTeX+ extension.
+
+\chapter{Displaying Code}
+
+Really this should only occur in an Appendix! So here it is: use the listings package (see the $\backslash$input\{listings.tex\} file included for setting up the package).
+
+\begin{lstlisting}[label={lst:code},caption={A simple example of code.}]
+using System;
+namespace Example;
+public class Sample 
+{
+  public static void main(String[] args) {
+    Console.WriteLine("Hello, World!");
+  }
+}
+\end{lstlisting}
+
+
 \chapter{Testing, 1, 2, 3, \ldots}
 
 This has been a test of the thesis typesetting system.
@@ -255,8 +303,8 @@ preceded by an actual thesis.
 \bibliographystyle{IEEEtran}
 \bibliography{nuthesis}
 %% Pull in all the entries in the bibtex file. Is is a useful trick to
-%% check all your references.
-\nocite{*}
+%% check all your references. HOWEVER, NEVER USE THIS IN YOUR FINAL DRAFT! 
+%% \nocite{*} %% In case you missed this: NEVER USE THIS IN YOUR FINAL DRAFT! 
 
 %% Index go here (if you have one)
 
